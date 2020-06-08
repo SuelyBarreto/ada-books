@@ -9,8 +9,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header>
+      <% flash.each do |name, message| %>
+        <p><%= name %> - <%= message %></p>
+        <hr/>
+      <% end %>
+
     <h1>Welcome to Ada Books</h1>
-  </header>
+  <% if session[:user_id] %>
+    <%= link_to "Log out", logout_path, method: "delete" %>
+  <% else %>
+    <%= link_to "Login with Github", github_login_path %>
+  <% end %>
   <body>
     <%= yield %>
   </body>
