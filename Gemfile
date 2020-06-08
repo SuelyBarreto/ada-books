@@ -97,7 +97,12 @@ group :development do
 end
 
 group :development do
+gem 'dotenv-rails' 
 end
 
 group :test do
 end
+
+gem "omniauth"
+gem "omniauth-github"
+
